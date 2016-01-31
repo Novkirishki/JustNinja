@@ -14,6 +14,8 @@
 		CFDDE22F1C5E3EFD00972D98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDDE22D1C5E3EFD00972D98 /* Main.storyboard */; };
 		CFDDE2311C5E3EFD00972D98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFDDE2301C5E3EFD00972D98 /* Assets.xcassets */; };
 		CFDDE2341C5E3EFD00972D98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFDDE2321C5E3EFD00972D98 /* LaunchScreen.storyboard */; };
+		CFE1482B1C5E9749003E18B9 /* Ninja.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE1482A1C5E9749003E18B9 /* Ninja.swift */; };
+		CFE1482D1C5EA927003E18B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE1482C1C5EA927003E18B9 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		CFDDE2301C5E3EFD00972D98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFDDE2331C5E3EFD00972D98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFDDE2351C5E3EFD00972D98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFE1482A1C5E9749003E18B9 /* Ninja.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ninja.swift; sourceTree = "<group>"; };
+		CFE1482C1C5EA927003E18B9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				CFDDE2321C5E3EFD00972D98 /* LaunchScreen.storyboard */,
 				CFDDE2351C5E3EFD00972D98 /* Info.plist */,
 				CF96ADA51C5E4EF5002EAD05 /* Ground.swift */,
+				CFE1482A1C5E9749003E18B9 /* Ninja.swift */,
+				CFE1482C1C5EA927003E18B9 /* Constants.swift */,
 			);
 			path = "Just Ninja";
 			sourceTree = "<group>";
@@ -144,7 +150,9 @@
 				CFDDE22A1C5E3EFD00972D98 /* GameScene.swift in Sources */,
 				CFDDE22C1C5E3EFD00972D98 /* GameViewController.swift in Sources */,
 				CF96ADA61C5E4EF5002EAD05 /* Ground.swift in Sources */,
+				CFE1482B1C5E9749003E18B9 /* Ninja.swift in Sources */,
 				CFDDE2261C5E3EFD00972D98 /* AppDelegate.swift in Sources */,
+				CFE1482D1C5EA927003E18B9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
