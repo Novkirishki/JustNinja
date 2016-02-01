@@ -38,7 +38,9 @@ class Ground: SKSpriteNode {
     }
     
     func start() {
-        let moveLeft = SKAction.moveByX(-frame.size.width/2, y: 0, duration: 1.0)
+        let durtionAccordingToMovingSpeed = NSTimeInterval(frame.size.width / MOVING_SPEED / 2)
+        
+        let moveLeft = SKAction.moveByX(-frame.size.width / 2, y: 0, duration: durtionAccordingToMovingSpeed)
         let resetPosition = SKAction.moveToX(0, duration: 0)
         let moveSequence = SKAction.sequence([moveLeft, resetPosition])
         

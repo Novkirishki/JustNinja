@@ -10,3 +10,4 @@ import Foundation
 import UIKit
 
 let GROUND_HEIGHT: CGFloat = 20.0
+let MOVING_SPEED: CGFloat = 320.0

@@ -13,6 +13,7 @@ class GameScene: SKScene {
     var ground: Ground!
     var ninja: Ninja!
     var cloudGenerator: CloudGenerator!
+    var wallGenerator: WallGenerator!
     
     var isGameStarted = false
     
@@ -36,6 +37,20 @@ class GameScene: SKScene {
         addChild(cloudGenerator)
         cloudGenerator.generateInitialClouds(5)
         cloudGenerator.startGeneratingCloudsWithSpawnTime(5)
+        
+        // walls
+        wallGenerator = WallGenerator(color: UIColor.clearColor(), size: view.frame.size)
+        wallGenerator.position = view.center
+        addChild(wallGenerator)
+        
+        // start label
+        let tapToStartLabel = SKLabelNode(text: "Tap to start")
+        tapToStartLabel.name = "tapToStartLabel"
+        tapToStartLabel.position.x = view.center.x
+        tapToStartLabel.position.y = view.center.y + 40
+        tapToStartLabel.fontName = "Helvetica"
+        tapToStartLabel.fontColor = UIColor.blackColor()
+        addChild(tapToStartLabel)
     }
     
     func start() {
@@ -43,6 +58,10 @@ class GameScene: SKScene {
         ninja.stop()
         ninja.startRunning()
         ground.start()
+        wallGenerator.startGeneratingWallEvery(1)
+        
+        let tapToStartLabel = childNodeWithName("tapToStartLabel")
+        tapToStartLabel?.removeFromParent()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
