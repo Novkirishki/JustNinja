@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CF96ADA61C5E4EF5002EAD05 /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96ADA51C5E4EF5002EAD05 /* Ground.swift */; };
+		CFA8D4E41C5F73C300AE9AEF /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA8D4E31C5F73C300AE9AEF /* Cloud.swift */; };
+		CFA8D4E61C5F748500AE9AEF /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA8D4E51C5F748500AE9AEF /* CloudGenerator.swift */; };
 		CFDDE2261C5E3EFD00972D98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDDE2251C5E3EFD00972D98 /* AppDelegate.swift */; };
 		CFDDE22A1C5E3EFD00972D98 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDDE2291C5E3EFD00972D98 /* GameScene.swift */; };
 		CFDDE22C1C5E3EFD00972D98 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDDE22B1C5E3EFD00972D98 /* GameViewController.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		CF96ADA51C5E4EF5002EAD05 /* Ground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
+		CFA8D4E31C5F73C300AE9AEF /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
+		CFA8D4E51C5F748500AE9AEF /* CloudGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudGenerator.swift; sourceTree = "<group>"; };
 		CFDDE2221C5E3EFD00972D98 /* Just Ninja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Just Ninja.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFDDE2251C5E3EFD00972D98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFDDE2291C5E3EFD00972D98 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CFA8D4E81C5F761F00AE9AEF /* Clouds */ = {
+			isa = PBXGroup;
+			children = (
+				CFA8D4E51C5F748500AE9AEF /* CloudGenerator.swift */,
+				CFA8D4E31C5F73C300AE9AEF /* Cloud.swift */,
+			);
+			name = Clouds;
+			sourceTree = "<group>";
+		};
 		CFDDE2191C5E3EFD00972D98 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +84,7 @@
 				CFDDE2351C5E3EFD00972D98 /* Info.plist */,
 				CF96ADA51C5E4EF5002EAD05 /* Ground.swift */,
 				CFE1482A1C5E9749003E18B9 /* Ninja.swift */,
+				CFA8D4E81C5F761F00AE9AEF /* Clouds */,
 				CFE1482C1C5EA927003E18B9 /* Constants.swift */,
 			);
 			path = "Just Ninja";
@@ -151,6 +165,8 @@
 				CFDDE22C1C5E3EFD00972D98 /* GameViewController.swift in Sources */,
 				CF96ADA61C5E4EF5002EAD05 /* Ground.swift in Sources */,
 				CFE1482B1C5E9749003E18B9 /* Ninja.swift in Sources */,
+				CFA8D4E41C5F73C300AE9AEF /* Cloud.swift in Sources */,
+				CFA8D4E61C5F748500AE9AEF /* CloudGenerator.swift in Sources */,
 				CFDDE2261C5E3EFD00972D98 /* AppDelegate.swift in Sources */,
 				CFE1482D1C5EA927003E18B9 /* Constants.swift in Sources */,
 			);
