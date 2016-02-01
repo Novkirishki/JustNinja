@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CF96ADA61C5E4EF5002EAD05 /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96ADA51C5E4EF5002EAD05 /* Ground.swift */; };
+		CF9D2C6F1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF9D2C6D1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodeld */; };
+		CF9D2C721C60005B00B3CCEF /* Highscore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D2C701C60005B00B3CCEF /* Highscore+CoreDataProperties.swift */; };
+		CF9D2C731C60005B00B3CCEF /* Highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D2C711C60005B00B3CCEF /* Highscore.swift */; };
+		CF9D2C751C6000D400B3CCEF /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D2C741C6000D400B3CCEF /* DataController.swift */; };
 		CFA8D4E41C5F73C300AE9AEF /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA8D4E31C5F73C300AE9AEF /* Cloud.swift */; };
 		CFA8D4E61C5F748500AE9AEF /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA8D4E51C5F748500AE9AEF /* CloudGenerator.swift */; };
 		CFA8D4EA1C5F85B300AE9AEF /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA8D4E91C5F85B300AE9AEF /* Wall.swift */; };
@@ -25,6 +29,10 @@
 
 /* Begin PBXFileReference section */
 		CF96ADA51C5E4EF5002EAD05 /* Ground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
+		CF9D2C6E1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JustNinjaDataModel.xcdatamodel; sourceTree = "<group>"; };
+		CF9D2C701C60005B00B3CCEF /* Highscore+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Highscore+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CF9D2C711C60005B00B3CCEF /* Highscore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Highscore.swift; sourceTree = "<group>"; };
+		CF9D2C741C6000D400B3CCEF /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		CFA8D4E31C5F73C300AE9AEF /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		CFA8D4E51C5F748500AE9AEF /* CloudGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudGenerator.swift; sourceTree = "<group>"; };
 		CFA8D4E91C5F85B300AE9AEF /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
@@ -53,6 +61,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF9D2C761C60010B00B3CCEF /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CF9D2C741C6000D400B3CCEF /* DataController.swift */,
+				CF9D2C701C60005B00B3CCEF /* Highscore+CoreDataProperties.swift */,
+				CF9D2C711C60005B00B3CCEF /* Highscore.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		CFA8D4E81C5F761F00AE9AEF /* Clouds */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +116,7 @@
 		CFDDE2191C5E3EFD00972D98 = {
 			isa = PBXGroup;
 			children = (
+				CF9D2C761C60010B00B3CCEF /* CoreData */,
 				CFDDE2241C5E3EFD00972D98 /* Just Ninja */,
 				CFDDE2231C5E3EFD00972D98 /* Products */,
 			);
@@ -127,6 +146,7 @@
 				CFE1482C1C5EA927003E18B9 /* Constants.swift */,
 				CFA8D4ED1C5F85C700AE9AEF /* Walls */,
 				CFA8D4F01C5FA32E00AE9AEF /* Score */,
+				CF9D2C6D1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodeld */,
 			);
 			path = "Just Ninja";
 			sourceTree = "<group>";
@@ -210,9 +230,13 @@
 				CFA8D4EC1C5F85BF00AE9AEF /* WallGenerator.swift in Sources */,
 				CFA8D4E41C5F73C300AE9AEF /* Cloud.swift in Sources */,
 				CFA8D4E61C5F748500AE9AEF /* CloudGenerator.swift in Sources */,
+				CF9D2C6F1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodeld in Sources */,
 				CFDDE2261C5E3EFD00972D98 /* AppDelegate.swift in Sources */,
+				CF9D2C751C6000D400B3CCEF /* DataController.swift in Sources */,
 				CFA8D4EF1C5FA32300AE9AEF /* Score.swift in Sources */,
 				CFE1482D1C5EA927003E18B9 /* Constants.swift in Sources */,
+				CF9D2C731C60005B00B3CCEF /* Highscore.swift in Sources */,
+				CF9D2C721C60005B00B3CCEF /* Highscore+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +387,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CF9D2C6D1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CF9D2C6E1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodel */,
+			);
+			currentVersion = CF9D2C6E1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodel */;
+			path = JustNinjaDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CFDDE21A1C5E3EFD00972D98 /* Project object */;
 }

@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import CoreData
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -17,6 +18,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var isGameStarted = false
     var isGameOver = false
+    
+    let moc = DataController().managedObjectContext
     
     override func didMoveToView(view: SKView) {
         backgroundColor = UIColor(red: 159.0/255.0, green: 201.0/255.0, blue: 244.0/255.0, alpha: 1.00)
@@ -74,7 +77,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.position = CGPointMake(view!.frame.size.width - 25, view!.frame.size.height - 35)
         addChild(scoreLabel)
         
-        let highscoreLabel = Score(num: 0)
+        let currentHighscore = getHighscoreFromCD()
+        let highscoreLabel = Score(num: currentHighscore)
         highscoreLabel.name = "highscoreLabel"
         highscoreLabel.position = CGPointMake(25, view!.frame.size.height - 35)
         addChild(highscoreLabel)
@@ -119,6 +123,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOverLabel.fontColor = UIColor.blackColor()
         addChild(gameOverLabel)
         gameOverLabel.runAction(blinkAnimation())
+        
+        // handle highscores
+        saveHighscoreToCD()
     }
     
     func restart() {
@@ -128,6 +135,55 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         newScene.scaleMode = .AspectFill
         
         view!.presentScene(newScene)
+    }
+    
+    func saveHighscoreToCD() {
+        let scoreLabel = childNodeWithName("scoreLabel") as! Score
+        
+        let currentMaxScore = getHighscoreFromCD()
+        
+        if currentMaxScore < scoreLabel.number {
+            let highscoreFetch = NSFetchRequest(entityName: "Highscore")
+            
+            do {
+                let fetchedHighscore = try moc.executeFetchRequest(highscoreFetch) as! [Highscore]
+                if fetchedHighscore.count == 0 {
+                    let entity = NSEntityDescription.insertNewObjectForEntityForName("Highscore", inManagedObjectContext: moc) as! Highscore
+                    entity.setValue(scoreLabel.number, forKey: "points")
+                    
+                    do {
+                        try moc.save()
+                    } catch {
+                        fatalError("failed to save highscore: \(error)")
+                    }
+                } else {
+                    let managedHighscore = fetchedHighscore[0]
+                    managedHighscore.setValue(scoreLabel.number, forKey: "points")
+                    do {
+                        try moc.save()
+                    } catch {
+                        fatalError("failed to save highscore: \(error)")
+                    }
+                }
+            } catch {
+                fatalError("\(error)")
+            }
+        }
+    }
+    
+    func getHighscoreFromCD() -> Int {
+        let highscoreFetch = NSFetchRequest(entityName: "Highscore")
+        
+        do {
+            let fetchedHighscore = try moc.executeFetchRequest(highscoreFetch) as! [Highscore]
+            if fetchedHighscore.count != 0 {
+                return fetchedHighscore.first!.points!.integerValue
+            }
+        } catch {
+            fatalError("\(error)")
+        }
+        
+        return 0
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
