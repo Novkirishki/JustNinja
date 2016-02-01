@@ -21,39 +21,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         backgroundColor = UIColor(red: 159.0/255.0, green: 201.0/255.0, blue: 244.0/255.0, alpha: 1.00)
         
-        // ground
-        ground = Ground(size: CGSizeMake(view.frame.width, GROUND_HEIGHT))
-        ground.position = CGPointMake(0, view.frame.size.height/2)
+        addGround()
+        addNinja()
+        addClouds()
+        addWalls()
+        addStartLabel()
+        addPhysicsWorld()
+    }
+    
+    func addGround() {
+        ground = Ground(size: CGSizeMake(view!.frame.width, GROUND_HEIGHT))
+        ground.position = CGPointMake(0, view!.frame.size.height/2)
         addChild(ground)
-        
-        // ninja
+    }
+    
+    func addNinja() {
         ninja = Ninja()
         ninja.position = CGPointMake(70, ground.position.y + ground.frame.size.height/2 + ninja.frame.size.height/2)
         addChild(ninja)
         ninja.breathe()
-        
-        // clouds
-        cloudGenerator = CloudGenerator(color: UIColor.clearColor(), size: view.frame.size)
-        cloudGenerator.position = view.center
+    }
+    
+    func addClouds() {
+        cloudGenerator = CloudGenerator(color: UIColor.clearColor(), size: view!.frame.size)
+        cloudGenerator.position = view!.center
         addChild(cloudGenerator)
         cloudGenerator.generateInitialClouds(5)
         cloudGenerator.startGeneratingCloudsWithSpawnTime(5)
-        
-        // walls
-        wallGenerator = WallGenerator(color: UIColor.clearColor(), size: view.frame.size)
-        wallGenerator.position = view.center
+    }
+    
+    func addWalls() {
+        wallGenerator = WallGenerator(color: UIColor.clearColor(), size: view!.frame.size)
+        wallGenerator.position = view!.center
         addChild(wallGenerator)
-        
-        // start label
+    }
+    
+    func addStartLabel() {
         let tapToStartLabel = SKLabelNode(text: "Tap to start")
         tapToStartLabel.name = "tapToStartLabel"
-        tapToStartLabel.position.x = view.center.x
-        tapToStartLabel.position.y = view.center.y + 80
+        tapToStartLabel.position.x = view!.center.x
+        tapToStartLabel.position.y = view!.center.y + 80
         tapToStartLabel.fontName = "Helvetica"
         tapToStartLabel.fontColor = UIColor.blackColor()
         addChild(tapToStartLabel)
-        
-        // physics world
+        tapToStartLabel.runAction(blinkAnimation())
+    }
+    
+    func addPhysicsWorld() {
         physicsWorld.contactDelegate = self
     }
     
@@ -72,8 +86,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         isGameOver = true
         
         // stop all actions
-        ninja.physicsBody = nil
         wallGenerator.stopWalls()
+        ninja.fall()
         ground.stop()
         ninja.stop()
         
@@ -84,6 +98,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOverLabel.fontName = "Helvetica"
         gameOverLabel.fontColor = UIColor.blackColor()
         addChild(gameOverLabel)
+        gameOverLabel.runAction(blinkAnimation())
     }
     
     func restart() {
@@ -96,7 +111,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        gameOer()
+        if !isGameOver {
+            gameOer()
+        }
+    }
+    
+    func blinkAnimation() -> SKAction {
+        let duration = 0.4
+        let fadeOut = SKAction.fadeAlphaTo(0.0, duration: duration)
+        let fadeIn = SKAction.fadeAlphaTo(1.0, duration: duration)
+        let blink = SKAction.sequence([fadeIn, fadeOut])
+        return SKAction.repeatActionForever(blink)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

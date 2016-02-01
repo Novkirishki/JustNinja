@@ -99,6 +99,14 @@ class Ninja: SKSpriteNode {
         runAction(flip)
     }
     
+    func fall() {
+        physicsBody?.affectedByGravity = true
+        physicsBody?.applyImpulse(CGVectorMake(-5, 30))
+        
+        let rotateBack = SKAction.rotateByAngle(CGFloat(M_PI) / 2, duration: 0.4)
+        runAction(rotateBack)
+    }
+    
     func startRunning() {
         let rotateBack = SKAction.rotateByAngle(-CGFloat(M_PI)/2.0, duration: 0.1)
         arm.runAction(rotateBack)
