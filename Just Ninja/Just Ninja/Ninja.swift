@@ -19,8 +19,14 @@ class Ninja: SKSpriteNode {
     var isFlippedDown = false
     
     init() {
-        super.init(texture: nil, color: UIColor.clearColor(), size: CGSizeMake(32, 44))
+        let ninjaSize = CGSizeMake(NINJA_WIDTH, NINJA_HEIGHT)
+        super.init(texture: nil, color: UIColor.clearColor(), size: ninjaSize)
         
+        drawNinjaAppearance()
+        loadPhysicsBodyWithSize(ninjaSize)
+    }
+    
+    func drawNinjaAppearance() {
         body = SKSpriteNode(color: UIColor.blackColor(), size: CGSizeMake(self.frame.size.width, 40))
         body.position = CGPointMake(0, 2)
         addChild(body)
@@ -67,6 +73,13 @@ class Ninja: SKSpriteNode {
         rightFoot = leftFoot.copy() as! SKSpriteNode
         rightFoot.position.x = 8
         addChild(rightFoot)
+    }
+    
+    func loadPhysicsBodyWithSize(size: CGSize) {
+        physicsBody = SKPhysicsBody(rectangleOfSize: size)
+        physicsBody?.categoryBitMask = NINJA_CATEGORY
+        physicsBody?.contactTestBitMask = WALL_CATEGORY
+        physicsBody?.affectedByGravity = false
     }
     
     func flip() {
@@ -116,6 +129,8 @@ class Ninja: SKSpriteNode {
     
     func stop() {
         body.removeAllActions()
+        leftFoot.removeAllActions()
+        rightFoot.removeAllActions()
     }
 
     required init?(coder aDecoder: NSCoder) {

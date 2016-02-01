@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var ground: Ground!
     var ninja: Ninja!
@@ -16,6 +16,7 @@ class GameScene: SKScene {
     var wallGenerator: WallGenerator!
     
     var isGameStarted = false
+    var isGameOver = false
     
     override func didMoveToView(view: SKView) {
         backgroundColor = UIColor(red: 159.0/255.0, green: 201.0/255.0, blue: 244.0/255.0, alpha: 1.00)
@@ -47,10 +48,13 @@ class GameScene: SKScene {
         let tapToStartLabel = SKLabelNode(text: "Tap to start")
         tapToStartLabel.name = "tapToStartLabel"
         tapToStartLabel.position.x = view.center.x
-        tapToStartLabel.position.y = view.center.y + 40
+        tapToStartLabel.position.y = view.center.y + 80
         tapToStartLabel.fontName = "Helvetica"
         tapToStartLabel.fontColor = UIColor.blackColor()
         addChild(tapToStartLabel)
+        
+        // physics world
+        physicsWorld.contactDelegate = self
     }
     
     func start() {
@@ -64,8 +68,41 @@ class GameScene: SKScene {
         tapToStartLabel?.removeFromParent()
     }
     
+    func gameOer() {
+        isGameOver = true
+        
+        // stop all actions
+        ninja.physicsBody = nil
+        wallGenerator.stopWalls()
+        ground.stop()
+        ninja.stop()
+        
+        // game over label
+        let gameOverLabel = SKLabelNode(text: "Game over! Tap to restart")
+        gameOverLabel.position.x = view!.center.x
+        gameOverLabel.position.y = view!.center.y + 80
+        gameOverLabel.fontName = "Helvetica"
+        gameOverLabel.fontColor = UIColor.blackColor()
+        addChild(gameOverLabel)
+    }
+    
+    func restart() {
+        cloudGenerator.stopGenerating()
+        
+        let newScene = GameScene(size: view!.bounds.size)
+        newScene.scaleMode = .AspectFill
+        
+        view!.presentScene(newScene)
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        gameOer()
+    }
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if !isGameStarted {
+        if isGameOver {
+            restart()
+        } else if !isGameStarted {
             start()
         } else {
             ninja.flip()

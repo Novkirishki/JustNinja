@@ -46,4 +46,8 @@ class Ground: SKSpriteNode {
         
         runAction(SKAction.repeatActionForever(moveSequence))
     }
+    
+    func stop() {
+        removeAllActions()
+    }
 }

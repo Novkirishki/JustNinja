@@ -11,14 +11,20 @@ import SpriteKit
 
 class Wall: SKSpriteNode {
     
-    let WALL_WIDTH: CGFloat = 30.0
-    let WALL_HEIGHT: CGFloat = 50.0
     let WALL_COLOR = UIColor.blackColor()
     
     init() {
-        super.init(texture: nil, color: WALL_COLOR, size: CGSizeMake(WALL_WIDTH, WALL_HEIGHT))
+        let wallSize = CGSizeMake(WALL_WIDTH, WALL_HEIGHT)
+        super.init(texture: nil, color: WALL_COLOR, size: wallSize)
         
+        loadPhysicsBodyWithSize(wallSize)
         startMoving()
+    }
+    
+    func loadPhysicsBodyWithSize(size: CGSize) {
+        physicsBody = SKPhysicsBody(rectangleOfSize: size)
+        physicsBody?.categoryBitMask = WALL_CATEGORY
+        physicsBody?.affectedByGravity = false
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -28,5 +34,9 @@ class Wall: SKSpriteNode {
     func startMoving() {
         let moveLeft = SKAction.moveByX(-MOVING_SPEED, y: 0, duration: 1)
         runAction(SKAction.repeatActionForever(moveLeft))
+    }
+    
+    func stopMoving() {
+        removeAllActions()
     }
 }
