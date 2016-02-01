@@ -26,6 +26,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addClouds()
         addWalls()
         addStartLabel()
+        addScoreLabels()
         addPhysicsWorld()
     }
     
@@ -65,6 +66,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapToStartLabel.fontColor = UIColor.blackColor()
         addChild(tapToStartLabel)
         tapToStartLabel.runAction(blinkAnimation())
+    }
+    
+    func addScoreLabels() {
+        let scoreLabel = Score(num: 0)
+        scoreLabel.name = "scoreLabel"
+        scoreLabel.position = CGPointMake(view!.frame.size.width - 25, view!.frame.size.height - 35)
+        addChild(scoreLabel)
+        
+        let highscoreLabel = Score(num: 0)
+        highscoreLabel.name = "highscoreLabel"
+        highscoreLabel.position = CGPointMake(25, view!.frame.size.height - 35)
+        addChild(highscoreLabel)
+        
+        let highscoreTextLabel = SKLabelNode(text: "High")
+        highscoreTextLabel.fontSize = 18.0
+        highscoreTextLabel.fontColor = UIColor.blackColor()
+        highscoreTextLabel.fontName = "Helvetica"
+        highscoreTextLabel.position = CGPointMake(0, -20)
+        highscoreLabel.addChild(highscoreTextLabel)
     }
     
     func addPhysicsWorld() {
@@ -135,6 +155,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        if wallGenerator.wallsTracker.count > 0 {
+            let wall = wallGenerator.wallsTracker[0] as Wall
+            
+            let wallLocation = wallGenerator.convertPoint(wall.position, toNode: self)
+            if wallLocation.x < ninja.position.x {
+                wallGenerator.wallsTracker.removeAtIndex(0)
+                
+                let scoreLabel = childNodeWithName("scoreLabel") as! Score
+                scoreLabel.increaseScore()
+            }
+        }
     }
 }
