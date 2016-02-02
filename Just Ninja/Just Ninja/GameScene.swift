@@ -11,6 +11,8 @@ import CoreData
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var viewController: GameViewController!
+    
     var ground: Ground!
     var ninja: Ninja!
     var cloudGenerator: CloudGenerator!
@@ -33,6 +35,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addStartLabel()
         addScoreLabels()
         addPhysicsWorld()
+        addGestureRecognizers()
+    }
+    
+    func addGestureRecognizers() {
+        // tap
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
+        self.view?.addGestureRecognizer(tapRecognizer)
+        
+        // long press
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        self.view?.addGestureRecognizer(longPressRecognizer)
+    }
+    
+    func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
+        if !isGameStarted && !isGameOver {
+            self.viewController.openHighscores()
+        }
+    }
+    
+    func handleTap(gestureRecognizer: UIGestureRecognizer) {
+        if isGameOver {
+            restart()
+        } else if !isGameStarted {
+            start()
+        } else {
+            ninja.flip()
+        }
     }
     
     func addGround() {
@@ -135,6 +164,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let newScene = GameScene(size: view!.bounds.size)
         newScene.scaleMode = .AspectFill
+        newScene.viewController = self.viewController
         
         view!.presentScene(newScene)
     }
@@ -203,13 +233,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if isGameOver {
-            restart()
-        } else if !isGameStarted {
-            start()
-        } else {
-            ninja.flip()
-        }
+
     }
    
     override func update(currentTime: CFTimeInterval) {

@@ -23,6 +23,7 @@ class GameViewController: UIViewController {
         // Create and confugure the scene
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
+        scene.viewController = self
         
         // Present the scene
         skView.presentScene(scene)
@@ -47,6 +48,12 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func openHighscores() {
+        let highscoresViewController:HighscoresTableViewController = HighscoresTableViewController()
+        
+        self.presentViewController(highscoresViewController, animated: true, completion: nil)
     }
 }
 	

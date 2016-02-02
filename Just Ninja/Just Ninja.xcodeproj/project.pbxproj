@@ -19,6 +19,8 @@
 		CF4A01BC1C60B4D300930EF2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01BB1C60B4D300930EF2 /* libsqlite3.tbd */; };
 		CF4A01CD1C60B5E300930EF2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01CB1C60B5E300930EF2 /* Bolts.framework */; };
 		CF4A01CE1C60B5E300930EF2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01CC1C60B5E300930EF2 /* Parse.framework */; };
+		CF4A01D01C60CDC700930EF2 /* HighscoresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4A01CF1C60CDC700930EF2 /* HighscoresTableViewController.swift */; };
+		CF4A01D21C60CF3700930EF2 /* HighscoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4A01D11C60CF3700930EF2 /* HighscoreTableViewCell.swift */; };
 		CF96ADA61C5E4EF5002EAD05 /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96ADA51C5E4EF5002EAD05 /* Ground.swift */; };
 		CF9D2C6F1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF9D2C6D1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodeld */; };
 		CF9D2C721C60005B00B3CCEF /* Highscore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D2C701C60005B00B3CCEF /* Highscore+CoreDataProperties.swift */; };
@@ -52,6 +54,8 @@
 		CF4A01BB1C60B4D300930EF2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CF4A01CB1C60B5E300930EF2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		CF4A01CC1C60B5E300930EF2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		CF4A01CF1C60CDC700930EF2 /* HighscoresTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoresTableViewController.swift; sourceTree = "<group>"; };
+		CF4A01D11C60CF3700930EF2 /* HighscoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreTableViewCell.swift; sourceTree = "<group>"; };
 		CF96ADA51C5E4EF5002EAD05 /* Ground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
 		CF9D2C6E1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JustNinjaDataModel.xcdatamodel; sourceTree = "<group>"; };
 		CF9D2C701C60005B00B3CCEF /* Highscore+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Highscore+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				CFDDE2251C5E3EFD00972D98 /* AppDelegate.swift */,
+				CF4A01D11C60CF3700930EF2 /* HighscoreTableViewCell.swift */,
+				CF4A01CF1C60CDC700930EF2 /* HighscoresTableViewController.swift */,
 				CFDDE2291C5E3EFD00972D98 /* GameScene.swift */,
 				CFDDE22B1C5E3EFD00972D98 /* GameViewController.swift */,
 				CFDDE22D1C5E3EFD00972D98 /* Main.storyboard */,
@@ -282,6 +288,7 @@
 				CFA8D4EA1C5F85B300AE9AEF /* Wall.swift in Sources */,
 				CFDDE22C1C5E3EFD00972D98 /* GameViewController.swift in Sources */,
 				CF96ADA61C5E4EF5002EAD05 /* Ground.swift in Sources */,
+				CF4A01D01C60CDC700930EF2 /* HighscoresTableViewController.swift in Sources */,
 				CFE1482B1C5E9749003E18B9 /* Ninja.swift in Sources */,
 				CFA8D4EC1C5F85BF00AE9AEF /* WallGenerator.swift in Sources */,
 				CFA8D4E41C5F73C300AE9AEF /* Cloud.swift in Sources */,
@@ -293,6 +300,7 @@
 				CFE1482D1C5EA927003E18B9 /* Constants.swift in Sources */,
 				CF9D2C731C60005B00B3CCEF /* Highscore.swift in Sources */,
 				CF9D2C721C60005B00B3CCEF /* Highscore+CoreDataProperties.swift in Sources */,
+				CF4A01D21C60CF3700930EF2 /* HighscoreTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
