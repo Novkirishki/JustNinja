@@ -19,6 +19,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var isGameStarted = false
     var isGameOver = false
     
+    var currentLevel = 0
+    
     let moc = DataController().managedObjectContext
     
     override func didMoveToView(view: SKView) {
@@ -109,6 +111,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOer() {
         isGameOver = true
         
+        // handle highscores
+        saveHighscoreToCD()
+        
         // stop all actions
         wallGenerator.stopWalls()
         ninja.fall()
@@ -123,9 +128,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOverLabel.fontColor = UIColor.blackColor()
         addChild(gameOverLabel)
         gameOverLabel.runAction(blinkAnimation())
-        
-        // handle highscores
-        saveHighscoreToCD()
     }
     
     func restart() {
@@ -220,6 +222,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 let scoreLabel = childNodeWithName("scoreLabel") as! Score
                 scoreLabel.increaseScore()
+                
+                if scoreLabel.number % WALLS_PER_LEVEL == 0 {
+                    if currentLevel < MAX_LEVEL {
+                        currentLevel++
+                        
+                        wallGenerator.stopGeneratingWalls()
+                        wallGenerator.startGeneratingWallEvery(WALLS_GENERATE_INTERVALS_PER_LEVEL[currentLevel])
+                    }
+                }
             }
         }
     }

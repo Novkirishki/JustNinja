@@ -16,6 +16,9 @@ let WALL_WIDTH: CGFloat = 30.0
 let WALL_HEIGHT: CGFloat = 50.0
 
 let MOVING_SPEED: CGFloat = 320.0
+let WALLS_PER_LEVEL = 7
+let WALLS_GENERATE_INTERVALS_PER_LEVEL: [NSTimeInterval] = [1.0, 0.8, 0.6, 0.5, 0.4, 0.3]
+let MAX_LEVEL: Int = 5
 
 let NINJA_CATEGORY: UInt32 = 0x1 << 0
 let WALL_CATEGORY: UInt32 = 0x1 << 1

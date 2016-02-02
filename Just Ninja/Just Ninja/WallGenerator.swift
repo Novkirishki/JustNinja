@@ -37,12 +37,15 @@ class WallGenerator: SKSpriteNode {
     }
     
     func stopWalls() {
-        // stop generating walls
-        generationTimer?.invalidate()
+        stopGeneratingWalls()
         
         // stop walls movement
         for wall in walls {
             wall.stopMoving()
         }
+    }
+    
+    func stopGeneratingWalls() {
+        generationTimer?.invalidate()
     }
 }
