@@ -32,7 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addNinja()
         addClouds()
         addWalls()
-        addStartLabel()
+        addStartLabels()
         addScoreLabels()
         addPhysicsWorld()
         addGestureRecognizers()
@@ -91,7 +91,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(wallGenerator)
     }
     
-    func addStartLabel() {
+    func addStartLabels() {
         let tapToStartLabel = SKLabelNode(text: "Tap to start")
         tapToStartLabel.name = "tapToStartLabel"
         tapToStartLabel.position.x = view!.center.x
@@ -100,6 +100,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapToStartLabel.fontColor = UIColor.blackColor()
         addChild(tapToStartLabel)
         tapToStartLabel.runAction(blinkAnimation())
+        
+        let longPressToHighscoresLabel = SKLabelNode(text: "Long press to view scores")
+        longPressToHighscoresLabel.name = "longPressToHighscoresLabel"
+        longPressToHighscoresLabel.position.x = view!.center.x
+        longPressToHighscoresLabel.position.y = view!.center.y - 80
+        longPressToHighscoresLabel.fontName = "Helvetica"
+        longPressToHighscoresLabel.fontColor = UIColor.blackColor()
+        addChild(longPressToHighscoresLabel)
+        longPressToHighscoresLabel.runAction(blinkAnimation())
     }
     
     func addScoreLabels() {
@@ -134,7 +143,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wallGenerator.startGeneratingWallEvery(1)
         
         let tapToStartLabel = childNodeWithName("tapToStartLabel")
+        let longPressToHighscoresLabel = childNodeWithName("longPressToHighscoresLabel")
         tapToStartLabel?.removeFromParent()
+        longPressToHighscoresLabel?.removeFromParent()
     }
     
     func gameOer() {
