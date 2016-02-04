@@ -17,8 +17,8 @@
 		CF4A01B81C60B4BF00930EF2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01B71C60B4BF00930EF2 /* SystemConfiguration.framework */; };
 		CF4A01BA1C60B4C900930EF2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01B91C60B4C900930EF2 /* libz.tbd */; };
 		CF4A01BC1C60B4D300930EF2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01BB1C60B4D300930EF2 /* libsqlite3.tbd */; };
-		CF4A01CD1C60B5E300930EF2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01CB1C60B5E300930EF2 /* Bolts.framework */; };
-		CF4A01CE1C60B5E300930EF2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01CC1C60B5E300930EF2 /* Parse.framework */; };
+		CF6758031C634A8400109B49 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6758011C634A8400109B49 /* Bolts.framework */; };
+		CF6758041C634A8400109B49 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6758021C634A8400109B49 /* Parse.framework */; };
 		CF748D7A1C62A12500D37F63 /* HighscoresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF748D791C62A12500D37F63 /* HighscoresTableViewController.m */; };
 		CF748D7F1C62A5EB00D37F63 /* HighscoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF748D7D1C62A5EB00D37F63 /* HighscoreTableViewCell.m */; };
 		CF748D801C62A5EB00D37F63 /* HighscoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF748D7E1C62A5EB00D37F63 /* HighscoreTableViewCell.xib */; };
@@ -53,8 +53,8 @@
 		CF4A01B71C60B4BF00930EF2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CF4A01B91C60B4C900930EF2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CF4A01BB1C60B4D300930EF2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		CF4A01CB1C60B5E300930EF2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		CF4A01CC1C60B5E300930EF2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		CF6758011C634A8400109B49 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		CF6758021C634A8400109B49 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		CF748D771C62A12400D37F63 /* Just Ninja-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Just Ninja-Bridging-Header.h"; sourceTree = "<group>"; };
 		CF748D781C62A12500D37F63 /* HighscoresTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoresTableViewController.h; sourceTree = "<group>"; };
 		CF748D791C62A12500D37F63 /* HighscoresTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoresTableViewController.m; sourceTree = "<group>"; };
@@ -96,9 +96,9 @@
 				CF4A01B21C60B4A500930EF2 /* QuartzCore.framework in Frameworks */,
 				CF4A01B01C60B49400930EF2 /* CoreLocation.framework in Frameworks */,
 				CF4A01AE1C60B48D00930EF2 /* CoreGraphics.framework in Frameworks */,
-				CF4A01CD1C60B5E300930EF2 /* Bolts.framework in Frameworks */,
+				CF6758031C634A8400109B49 /* Bolts.framework in Frameworks */,
 				CF4A01AC1C60B48600930EF2 /* CFNetwork.framework in Frameworks */,
-				CF4A01CE1C60B5E300930EF2 /* Parse.framework in Frameworks */,
+				CF6758041C634A8400109B49 /* Parse.framework in Frameworks */,
 				CF4A01AA1C60B47D00930EF2 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,8 +109,8 @@
 		CF4A01CA1C60B56E00930EF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CF4A01CC1C60B5E300930EF2 /* Parse.framework */,
-				CF4A01CB1C60B5E300930EF2 /* Bolts.framework */,
+				CF6758011C634A8400109B49 /* Bolts.framework */,
+				CF6758021C634A8400109B49 /* Parse.framework */,
 				CF4A01BB1C60B4D300930EF2 /* libsqlite3.tbd */,
 				CF4A01B91C60B4C900930EF2 /* libz.tbd */,
 				CF4A01B71C60B4BF00930EF2 /* SystemConfiguration.framework */,

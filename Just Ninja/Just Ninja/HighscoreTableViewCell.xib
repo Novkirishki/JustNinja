@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,32 +14,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="380" height="108"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POf-Il-iIH">
-                        <rect key="frame" x="309" y="11" width="63" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POf-Il-iIH">
+                        <rect key="frame" x="270" y="9" width="102" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WdR-JF-8aC">
-                        <rect key="frame" x="8" y="9" width="101" height="90"/>
+                        <rect key="frame" x="8" y="17" width="70" height="70"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga0-vy-chT">
-                        <rect key="frame" x="117" y="0.0" width="176" height="43"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="shadowColor" red="0.08491599047351181" green="0.92181364528795817" blue="0.026710763560462283" alpha="1" colorSpace="calibratedRGB"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqy-BP-QuH">
-                        <rect key="frame" x="136" y="44" width="166" height="39"/>
+                        <rect key="frame" x="170" y="48" width="166" height="39"/>
                         <fontDescription key="fontDescription" type="system" pointSize="31"/>
                         <color key="textColor" red="0.084915990469999994" green="0.92181364529999998" blue="0.02671076356" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" red="0.084915990469999994" green="0.92181364529999998" blue="0.02671076356" alpha="1" colorSpace="calibratedRGB"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga0-vy-chT">
+                        <rect key="frame" x="137" y="0.0" width="176" height="43"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="shadowColor" red="0.08491599047351181" green="0.92181364528795817" blue="0.026710763560462283" alpha="1" colorSpace="calibratedRGB"/>
+                    </label>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="POf-Il-iIH" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ArS-Yc-VYA"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateLabel" destination="POf-Il-iIH" id="9bx-pX-dcX"/>

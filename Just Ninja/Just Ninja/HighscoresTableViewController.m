@@ -7,14 +7,25 @@
 //
 
 #import "HighscoresTableViewController.h"
-
 #import "HighscoreTableViewCell.h"
+#import <Parse/Parse.h>
 
 @interface HighscoresTableViewController ()
 
 @end
 
 @implementation HighscoresTableViewController
+
+
+@synthesize highscores = _highscores;
+
+- (NSMutableArray *)highscores {
+    if (!_highscores) {
+        _highscores = [[NSMutableArray alloc] init];
+    }
+    
+    return _highscores;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +36,19 @@
 }
 
 -(void) loadData {
-    self.highscores = [NSArray arrayWithObjects:@"345", @"21", @"32",nil];
+    [self.highscores removeAllObjects];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Highscore"];
+    [query orderByDescending:@"Score"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                [self.highscores addObject:object];
+            }
+            
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -41,7 +64,23 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"HighscoreTableViewCell" owner:self options:nil] objectAtIndex:0];
     }
     
-    cell.scoreLabel.text = [self.highscores objectAtIndex:indexPath.row];
+    PFObject *highscore = [self.highscores objectAtIndex:indexPath.row];
+    
+    NSNumber *scoreAsNumber = [highscore objectForKey:@"Score"];
+    NSString *highscoreAsString = [scoreAsNumber stringValue];
+    cell.scoreLabel.text = highscoreAsString;
+    cell.usernameLabel.text = [highscore objectForKey:@"Username"];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    cell.dateLabel.text = [dateFormatter stringFromDate:highscore.createdAt];
+    
+    PFFile *userImage = highscore[@"Image"];
+    NSData *imageData = [userImage getData];
+    UIImage *image = [UIImage imageWithData:imageData];
+    [cell.imageView setContentMode:UIViewContentModeScaleToFill];
+    [cell.imageView setClipsToBounds:TRUE];
+    cell.imageView.image = image;
     
     return cell;
 }

@@ -10,6 +10,6 @@
 
 @interface HighscoresTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSArray *highscores;
+@property (strong, nonatomic) NSMutableArray *highscores;
 
 @end
