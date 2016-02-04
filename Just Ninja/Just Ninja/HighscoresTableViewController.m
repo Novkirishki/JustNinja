@@ -34,6 +34,7 @@
     [self loadData];
     
     UIBarButtonItem *playButton = [[UIBarButtonItem alloc] initWithTitle:@"Play" style:UIBarButtonItemStylePlain target:self action:@selector(play:)];
+    playButton.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = playButton;
     
     self.tableView.rowHeight = 88;

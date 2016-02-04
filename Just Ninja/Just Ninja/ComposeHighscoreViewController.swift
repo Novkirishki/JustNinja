@@ -16,6 +16,11 @@ class ComposeHighscoreViewController: UIViewController {
     var score: String!
     
     override func viewDidLoad() {
+        
+        if score == "0" {
+            performSegueWithIdentifier("segueToHS", sender: nil)
+        }
+        
         super.viewDidLoad()
         
         scoreLabel.text = score

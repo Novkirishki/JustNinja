@@ -48,6 +48,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // long press
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
         self.view?.addGestureRecognizer(longPressRecognizer)
+        
+        // swipe
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view?.addGestureRecognizer(swipeRight)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
+        swipeDown.direction = UISwipeGestureRecognizerDirection.Down
+        self.view?.addGestureRecognizer(swipeDown)
+        
+        // double tap
+        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "handleDoubleTap:")
+        doubleTapRecognizer.numberOfTapsRequired = 2
+        self.view?.addGestureRecognizer(doubleTapRecognizer)
     }
     
     func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
@@ -57,12 +71,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func handleTap(gestureRecognizer: UIGestureRecognizer) {
+        if !isGameStarted && !isGameOver {
+            start()
+        } else if isGameStarted {
+            ninja.flip()
+        }
+    }
+    
+    func handleSwipe(gestureRecognizer: UIGestureRecognizer) {
+        if isGameOver {
+            self.viewController.openHighscores(scoreLabel.text)
+        }
+    }
+    
+    func handleDoubleTap(gestureRecognizer: UIGestureRecognizer) {
         if isGameOver {
             restart()
-        } else if !isGameStarted {
-            start()
-        } else {
-            ninja.flip()
         }
     }
     
@@ -162,14 +186,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground.stop()
         ninja.stop()
         
-        // game over label
-        let gameOverLabel = SKLabelNode(text: "Game over! Tap to restart")
+        addGameOverLabels()
+    }
+    
+    func addGameOverLabels() {
+        let gameOverLabel = SKLabelNode(text: "Game over! Double tap to restart")
         gameOverLabel.position.x = view!.center.x
         gameOverLabel.position.y = view!.center.y + 80
         gameOverLabel.fontName = "Helvetica"
         gameOverLabel.fontColor = UIColor.blackColor()
         addChild(gameOverLabel)
         gameOverLabel.runAction(blinkAnimation())
+        
+        let swipeToSaveHighscore = SKLabelNode(text: "Swipe to save score")
+        swipeToSaveHighscore.name = "swipeToSaveHighscore"
+        swipeToSaveHighscore.position.x = view!.center.x
+        swipeToSaveHighscore.position.y = view!.center.y - 80
+        swipeToSaveHighscore.fontName = "Helvetica"
+        swipeToSaveHighscore.fontColor = UIColor.blackColor()
+        addChild(swipeToSaveHighscore)
+        swipeToSaveHighscore.runAction(blinkAnimation())
     }
     
     func restart() {

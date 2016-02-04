@@ -50,10 +50,11 @@ class GameViewController: UIViewController {
         return true
     }
     
-    func openHighscores(score: String!) {
+    func openHighscores(score: String!) {        
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
-        let navigationController = storyBoard.instantiateViewControllerWithIdentifier("navigation") as!UINavigationController
+        let navigationController = storyBoard.instantiateViewControllerWithIdentifier("addHighscoreNavigation") as! UINavigationController
+        
         let highscoreController = navigationController.viewControllers.first as! ComposeHighscoreViewController
         highscoreController.score = score
         self.presentViewController(navigationController, animated:true, completion:nil)

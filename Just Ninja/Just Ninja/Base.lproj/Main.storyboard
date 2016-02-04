@@ -46,15 +46,11 @@
                             <outlet property="delegate" destination="Udv-qt-7SX" id="6a4-UU-D96"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Highscores" id="ujR-wL-NsN">
-                        <barButtonItem key="leftBarButtonItem" systemItem="play" id="8AZ-XG-0Om" colorLabel="IBBuiltInLabel-Green">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Highscores" id="ujR-wL-NsN"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APC-KF-t9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2675" y="795"/>
+            <point key="canvasLocation" x="3487" y="795"/>
         </scene>
         <!--Save highscore-->
         <scene sceneID="5h4-7W-PW8">
@@ -94,7 +90,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gfu-vs-KTW">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Udv-qt-7SX" kind="show" id="f7A-fc-IbZ"/>
+                                <segue destination="Udv-qt-7SX" kind="show" identifier="segueToHS" id="vP9-Yg-6wt"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="MFN-Zk-I9W">
@@ -111,12 +107,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fvh-7M-oFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3400" y="373"/>
+            <point key="canvasLocation" x="4212" y="373"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sY9-AO-hfo">
             <objects>
-                <navigationController storyboardIdentifier="navigation" automaticallyAdjustsScrollViewInsets="NO" id="Upe-Xm-Vdy" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="addHighscoreNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Upe-Xm-Vdy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VPl-A0-Uzl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -133,7 +129,8 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nW0-ZY-ZBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1927" y="373"/>
+            <point key="canvasLocation" x="1923" y="384"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.069469726940000004" green="0.78210896600000002" blue="0.02238468817" alpha="1" colorSpace="calibratedRGB"/>
 </document>
