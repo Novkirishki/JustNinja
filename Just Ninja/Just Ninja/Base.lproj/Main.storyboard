@@ -54,7 +54,64 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APC-KF-t9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2739" y="373"/>
+            <point key="canvasLocation" x="2675" y="795"/>
+        </scene>
+        <!--Save highscore-->
+        <scene sceneID="5h4-7W-PW8">
+            <objects>
+                <viewController id="SIN-vC-GBB" customClass="ComposeHighscoreViewController" customModule="Just_Ninja" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KA1-0y-U1S"/>
+                        <viewControllerLayoutGuide type="bottom" id="D5a-pC-KPh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qPZ-gv-jvP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umd-bF-9n9">
+                                <rect key="frame" x="57" y="101" width="145" height="74"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.069469726940000004" green="0.78210896600000002" blue="0.02238468817" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="668-BD-csk">
+                                <rect key="frame" x="264" y="97" width="161" height="82"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.069469726940000004" green="0.78210896600000002" blue="0.02238468817" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pbx-Js-Zm8">
+                                <rect key="frame" x="20" y="222" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Save highscore" id="8Za-qL-Gl9">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gfu-vs-KTW">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="Udv-qt-7SX" kind="show" id="f7A-fc-IbZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MFN-Zk-I9W">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="saveHighscore:" destination="SIN-vC-GBB" id="maZ-nN-ddu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="scoreLabel" destination="668-BD-csk" id="ds4-PC-2WA"/>
+                        <outlet property="usernameField" destination="Pbx-Js-Zm8" id="Rzw-vs-vFa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fvh-7M-oFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3400" y="373"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sY9-AO-hfo">
@@ -71,7 +128,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Udv-qt-7SX" kind="relationship" relationship="rootViewController" id="JlY-DT-hyt"/>
+                        <segue destination="SIN-vC-GBB" kind="relationship" relationship="rootViewController" id="9qk-ZK-fez"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nW0-ZY-ZBX" userLabel="First Responder" sceneMemberID="firstResponder"/>

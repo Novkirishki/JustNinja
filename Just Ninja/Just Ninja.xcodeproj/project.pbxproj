@@ -19,6 +19,7 @@
 		CF4A01BC1C60B4D300930EF2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01BB1C60B4D300930EF2 /* libsqlite3.tbd */; };
 		CF6758031C634A8400109B49 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6758011C634A8400109B49 /* Bolts.framework */; };
 		CF6758041C634A8400109B49 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6758021C634A8400109B49 /* Parse.framework */; };
+		CF6758061C637E5500109B49 /* ComposeHighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6758051C637E5500109B49 /* ComposeHighscoreViewController.swift */; };
 		CF748D7A1C62A12500D37F63 /* HighscoresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF748D791C62A12500D37F63 /* HighscoresTableViewController.m */; };
 		CF748D7F1C62A5EB00D37F63 /* HighscoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF748D7D1C62A5EB00D37F63 /* HighscoreTableViewCell.m */; };
 		CF748D801C62A5EB00D37F63 /* HighscoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF748D7E1C62A5EB00D37F63 /* HighscoreTableViewCell.xib */; };
@@ -55,6 +56,7 @@
 		CF4A01BB1C60B4D300930EF2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CF6758011C634A8400109B49 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		CF6758021C634A8400109B49 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		CF6758051C637E5500109B49 /* ComposeHighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeHighscoreViewController.swift; sourceTree = "<group>"; };
 		CF748D771C62A12400D37F63 /* Just Ninja-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Just Ninja-Bridging-Header.h"; sourceTree = "<group>"; };
 		CF748D781C62A12500D37F63 /* HighscoresTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoresTableViewController.h; sourceTree = "<group>"; };
 		CF748D791C62A12500D37F63 /* HighscoresTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoresTableViewController.m; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				CFDDE22B1C5E3EFD00972D98 /* GameViewController.swift */,
 				CF748D791C62A12500D37F63 /* HighscoresTableViewController.m */,
 				CF748D781C62A12500D37F63 /* HighscoresTableViewController.h */,
+				CF6758051C637E5500109B49 /* ComposeHighscoreViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				CFA8D4E41C5F73C300AE9AEF /* Cloud.swift in Sources */,
 				CFA8D4E61C5F748500AE9AEF /* CloudGenerator.swift in Sources */,
 				CF9D2C6F1C5FFF6C00B3CCEF /* JustNinjaDataModel.xcdatamodeld in Sources */,
+				CF6758061C637E5500109B49 /* ComposeHighscoreViewController.swift in Sources */,
 				CFDDE2261C5E3EFD00972D98 /* AppDelegate.swift in Sources */,
 				CF748D7F1C62A5EB00D37F63 /* HighscoreTableViewCell.m in Sources */,
 				CF9D2C751C6000D400B3CCEF /* DataController.swift in Sources */,

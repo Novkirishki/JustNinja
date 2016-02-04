@@ -46,23 +46,17 @@ class GameViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
-    func openHighscores() {
+    func openHighscores(score: String!) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
-        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("navigation")
-        self.presentViewController(nextViewController, animated:true, completion:nil)
-//        let highscoresViewController:HighscoresTableViewController = HighscoresTableViewController()
-//        
-//        self.presentViewController(highscoresViewController, animated: true, completion: nil)
+        let navigationController = storyBoard.instantiateViewControllerWithIdentifier("navigation") as!UINavigationController
+        let highscoreController = navigationController.viewControllers.first as! ComposeHighscoreViewController
+        highscoreController.score = score
+        self.presentViewController(navigationController, animated:true, completion:nil)
     }
 }
 	

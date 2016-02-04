@@ -23,6 +23,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var currentLevel = 0
     
+    var scoreLabel: Score!
+    
     let moc = DataController().managedObjectContext
     
     override func didMoveToView(view: SKView) {
@@ -50,7 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
         if !isGameStarted && !isGameOver {
-            self.viewController.openHighscores()
+            self.viewController.openHighscores(scoreLabel.text)
         }
     }
     
@@ -112,7 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func addScoreLabels() {
-        let scoreLabel = Score(num: 0)
+        scoreLabel = Score(num: 0)
         scoreLabel.name = "scoreLabel"
         scoreLabel.position = CGPointMake(view!.frame.size.width - 25, view!.frame.size.height - 35)
         addChild(scoreLabel)
