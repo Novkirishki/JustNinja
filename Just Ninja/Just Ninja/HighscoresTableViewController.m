@@ -45,6 +45,10 @@
     [self.navigationController presentViewController:controller animated:TRUE completion:nil];
 }
 
+- (IBAction)refresh:(UIBarButtonItem *)sender {
+    [self loadData];
+}
+
 -(void) loadData {
     [self.highscores removeAllObjects];
     
@@ -76,6 +80,11 @@
     
     PFObject *highscore = [self.highscores objectAtIndex:indexPath.row];
     
+    cell.scoreLabel.alpha = 0;
+    cell.usernameLabel.alpha = 0;
+    cell.userImage.alpha = 0;
+    cell.dateLabel.alpha = 0;
+    
     NSNumber *scoreAsNumber = [highscore objectForKey:@"Score"];
     NSString *highscoreAsString = [scoreAsNumber stringValue];
     cell.scoreLabel.text = highscoreAsString;
@@ -88,9 +97,15 @@
     PFFile *userImage = highscore[@"Image"];
     NSData *imageData = [userImage getData];
     UIImage *image = [UIImage imageWithData:imageData];
-    [cell.imageView setContentMode:UIViewContentModeScaleToFill];
-    [cell.imageView setClipsToBounds:TRUE];
-    cell.imageView.image = image;
+    cell.userImage.image = image;
+    
+    [UIView animateWithDuration: 0.5 animations:^{
+        cell.scoreLabel.alpha = 1;
+        cell.usernameLabel.alpha = 1;
+        cell.userImage.alpha = 1;
+        cell.dateLabel.alpha = 1;
+        
+    }];
     
     return cell;
 }

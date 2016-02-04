@@ -46,7 +46,14 @@
                             <outlet property="delegate" destination="Udv-qt-7SX" id="6a4-UU-D96"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Highscores" id="ujR-wL-NsN"/>
+                    <navigationItem key="navigationItem" title="Highscores" id="ujR-wL-NsN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="vtZ-tL-p0Q">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="refresh:" destination="Udv-qt-7SX" id="RH3-p7-WBj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APC-KF-t9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

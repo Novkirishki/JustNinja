@@ -29,13 +29,11 @@ class ComposeHighscoreViewController: UIViewController {
     
     @IBAction func saveHighscore(sender: AnyObject) {
         let highscore = PFObject(className:"Highscore")
- //       let scoreAsText = scoreLabel.text
-//        let scoreAsNumber = Int(scoreAsText!)
-//        highscore["Score"] = NSNumber(scoreAsNumber)
+        let scoreAsNumber = Int(score)
+        highscore["Score"] = NSNumber(integer: scoreAsNumber!)
         highscore["Username"] = usernameField.text
         highscore.saveInBackground()
         
-        let highscoresViewController = HighscoresTableViewController()
-        self.presentViewController(highscoresViewController, animated: true, completion: nil)
+        performSegueWithIdentifier("segueToHS", sender: nil)
     }
 }
