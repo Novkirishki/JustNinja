@@ -9,6 +9,7 @@
 #import "HighscoresTableViewController.h"
 #import "HighscoreTableViewCell.h"
 #import <Parse/Parse.h>
+#import "Just_Ninja-Swift.h"
 
 @interface HighscoresTableViewController ()
 
@@ -32,7 +33,15 @@
     
     [self loadData];
     
+    UIBarButtonItem *playButton = [[UIBarButtonItem alloc] initWithTitle:@"Play" style:UIBarButtonItemStylePlain target:self action:@selector(play:)];
+    self.navigationItem.leftBarButtonItem = playButton;
+    
     self.tableView.rowHeight = 88;
+}
+
+- (void) play:(UIBarButtonItem *)sender {
+    GameViewController *controller = [[GameViewController alloc] init];
+    [self.navigationController presentViewController:controller animated:TRUE completion:nil];
 }
 
 -(void) loadData {

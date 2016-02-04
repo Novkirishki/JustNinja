@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = true
         
         // Configure the view
         let skView = view as! SKView
@@ -27,6 +28,10 @@ class GameViewController: UIViewController {
         
         // Present the scene
         skView.presentScene(scene)
+    }
+    
+    override func loadView() {
+        self.view = SKView(frame: CGRect(x: 0, y: 0, width: 667, height: 375 ))
     }
 
     override func shouldAutorotate() -> Bool {
@@ -51,9 +56,13 @@ class GameViewController: UIViewController {
     }
     
     func openHighscores() {
-        let highscoresViewController:HighscoresTableViewController = HighscoresTableViewController()
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
-        self.presentViewController(highscoresViewController, animated: true, completion: nil)
+        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("navigation")
+        self.presentViewController(nextViewController, animated:true, completion:nil)
+//        let highscoresViewController:HighscoresTableViewController = HighscoresTableViewController()
+//        
+//        self.presentViewController(highscoresViewController, animated: true, completion: nil)
     }
 }
 	

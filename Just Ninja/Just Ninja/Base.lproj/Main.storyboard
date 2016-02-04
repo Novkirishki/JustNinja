@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="1203" y="373"/>
         </scene>
-        <!--Highscores Table View Controller-->
+        <!--Highscores-->
         <scene sceneID="umu-Et-aO0">
             <objects>
                 <tableViewController id="Udv-qt-7SX" customClass="HighscoresTableViewController" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="r5k-LP-X29">
-                                <rect key="frame" x="0.0" y="28" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r5k-LP-X29" id="908-Jz-TiQ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
@@ -46,8 +46,35 @@
                             <outlet property="delegate" destination="Udv-qt-7SX" id="6a4-UU-D96"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Highscores" id="ujR-wL-NsN">
+                        <barButtonItem key="leftBarButtonItem" systemItem="play" id="8AZ-XG-0Om" colorLabel="IBBuiltInLabel-Green">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APC-KF-t9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2739" y="373"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sY9-AO-hfo">
+            <objects>
+                <navigationController storyboardIdentifier="navigation" automaticallyAdjustsScrollViewInsets="NO" id="Upe-Xm-Vdy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VPl-A0-Uzl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.069469726937255033" green="0.78210896596858637" blue="0.022384688166055221" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Udv-qt-7SX" kind="relationship" relationship="rootViewController" id="JlY-DT-hyt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nW0-ZY-ZBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1927" y="373"/>
         </scene>
