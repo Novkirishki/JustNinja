@@ -8,7 +8,7 @@
 
 import Parse
 
-class ComposeHighscoreViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ComposeHighscoreViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var usernameField: UITextField! = UITextField()
     @IBOutlet weak var scoreLabel: UILabel! = UILabel()
@@ -16,6 +16,8 @@ class ComposeHighscoreViewController: UIViewController, UINavigationControllerDe
     
     var score: String!
     var tempImage: UIImage!
+    let locationManager = CLLocationManager()
+    var location: CLLocationCoordinate2D!
     
     override func viewDidLoad() {
         
@@ -27,6 +29,22 @@ class ComposeHighscoreViewController: UIViewController, UINavigationControllerDe
         
         scoreLabel.text = score
         usernameField.becomeFirstResponder()
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        location = manager.location!.coordinate
     }
     
     @IBAction func captureImage() {
@@ -48,16 +66,18 @@ class ComposeHighscoreViewController: UIViewController, UINavigationControllerDe
         let scoreAsNumber = Int(score)
         highscore["Score"] = NSNumber(integer: scoreAsNumber!)
         highscore["Username"] = usernameField.text
-        highscore.saveInBackground()
         
         if tempImage != nil {
             let imageData = UIImagePNGRepresentation(tempImage)
             let imageFile = PFFile(name:"image.png", data:imageData!)
             
             highscore["Image"] = imageFile
-            highscore.saveInBackground()
         }
         
+        let point = PFGeoPoint(latitude:location.latitude, longitude:location.longitude)
+        highscore["Location"] = point
+        
+        highscore.saveInBackground()
         performSegueWithIdentifier("segueToHS", sender: nil)
     }
     
