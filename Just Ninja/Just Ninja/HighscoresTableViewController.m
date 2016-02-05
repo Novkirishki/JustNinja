@@ -84,11 +84,13 @@
     cell.usernameLabel.alpha = 0;
     cell.userImage.alpha = 0;
     cell.dateLabel.alpha = 0;
+    cell.countryLabel.alpha = 0;
     
     NSNumber *scoreAsNumber = [highscore objectForKey:@"Score"];
     NSString *highscoreAsString = [scoreAsNumber stringValue];
     cell.scoreLabel.text = highscoreAsString;
     cell.usernameLabel.text = [highscore objectForKey:@"Username"];
+    cell.countryLabel.text = [highscore objectForKey:@"Country"];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
@@ -104,7 +106,7 @@
         cell.usernameLabel.alpha = 1;
         cell.userImage.alpha = 1;
         cell.dateLabel.alpha = 1;
-        
+        cell.countryLabel.alpha = 1;
     }];
     
     return cell;

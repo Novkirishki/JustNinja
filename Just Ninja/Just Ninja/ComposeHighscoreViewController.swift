@@ -17,7 +17,7 @@ class ComposeHighscoreViewController: UIViewController, UINavigationControllerDe
     var score: String!
     var tempImage: UIImage!
     let locationManager = CLLocationManager()
-    var location: CLLocationCoordinate2D!
+    var country: String!
     
     override func viewDidLoad() {
         
@@ -44,7 +44,37 @@ class ComposeHighscoreViewController: UIViewController, UINavigationControllerDe
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = manager.location!.coordinate
+        self.getPlaceName(manager.location!) { (answer) -> Void in
+            self.country = answer
+        }
+    }
+    
+    func getPlaceName(location: CLLocation, completion: (answer: String?) -> Void) {
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+            if (error != nil) {
+                print("Reverse geocoder failed with an error" + error!.localizedDescription)
+                completion(answer: "")
+            } else if placemarks!.count > 0 {
+                let pm = placemarks![0] as CLPlacemark
+                completion(answer: self.displayLocationInfo(pm))
+            } else {
+                print("Problems with the data received from geocoder.")
+                completion(answer: "")
+            }
+        })
+        
+    }
+    
+    func displayLocationInfo(placemark: CLPlacemark?) -> String
+    {
+        if let containsPlacemark = placemark
+        {
+            let country = (containsPlacemark.country != nil) ? containsPlacemark.country : ""
+            
+            return country!
+        } else {
+            return ""
+        }
     }
     
     @IBAction func captureImage() {
@@ -66,6 +96,7 @@ class ComposeHighscoreViewController: UIViewController, UINavigationControllerDe
         let scoreAsNumber = Int(score)
         highscore["Score"] = NSNumber(integer: scoreAsNumber!)
         highscore["Username"] = usernameField.text
+        highscore["Country"] = country
         
         if tempImage != nil {
             let imageData = UIImagePNGRepresentation(tempImage)
@@ -74,8 +105,6 @@ class ComposeHighscoreViewController: UIViewController, UINavigationControllerDe
             highscore["Image"] = imageFile
         }
         
-        let point = PFGeoPoint(latitude:location.latitude, longitude:location.longitude)
-        highscore["Location"] = point
         
         highscore.saveInBackground()
         performSegueWithIdentifier("segueToHS", sender: nil)
