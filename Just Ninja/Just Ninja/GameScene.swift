@@ -8,28 +8,27 @@
 
 import SpriteKit
 import CoreData
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var viewController: GameViewController!
-    
     var ground: Ground!
     var ninja: Ninja!
     var cloudGenerator: CloudGenerator!
     var wallGenerator: WallGenerator!
-    
     var isGameStarted = false
     var isGameOver = false
-    
     var currentLevel = 0
-    
     var scoreLabel: Score!
+    var backgroundMusicPlayer: AVAudioPlayer?
+    var bumbMusicPlayer: AVAudioPlayer?
     
     let moc = DataController().managedObjectContext
     
     override func didMoveToView(view: SKView) {
-        backgroundColor = UIColor(red: 159.0/255.0, green: 201.0/255.0, blue: 244.0/255.0, alpha: 1.00)
         
+        addBackground()
         addGround()
         addNinja()
         addClouds()
@@ -38,6 +37,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addScoreLabels()
         addPhysicsWorld()
         addGestureRecognizers()
+        setSounds()
+    }
+    
+    func setSounds() {
+        let backgroundMusicPath = NSBundle.mainBundle().pathForResource("background", ofType: "mp3")
+        let bgMusicURL = NSURL.fileURLWithPath(backgroundMusicPath!)
+        
+        do {
+            try backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicURL)
+        } catch {
+            print("Player not available")
+        }
+        
+        let bumpSoundPath = NSBundle.mainBundle().pathForResource("bump", ofType: "wav")
+        let bumpSoundUrl = NSURL.fileURLWithPath(bumpSoundPath!)
+        
+        do {
+            try bumbMusicPlayer = AVAudioPlayer(contentsOfURL: bumpSoundUrl)
+        } catch {
+            print("Player not available")
+        }
+        
+        backgroundMusicPlayer?.volume = 0.7
+        backgroundMusicPlayer?.play()
+    }
+    
+    func addBackground() {
+        let backgroundTexture = SKTexture(imageNamed: "background0.png")
+        let backgroundImage = SKSpriteNode(texture: backgroundTexture, size: view!.frame.size)
+        backgroundImage.position = view!.center
+        backgroundImage.zPosition = -10
+        addChild(backgroundImage)
     }
     
     func addGestureRecognizers() {
@@ -176,11 +207,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func gameOer() {
         isGameOver = true
+        bumbMusicPlayer?.play()
         
         // handle highscores
         saveHighscoreToCD()
         
         // stop all actions
+        backgroundMusicPlayer?.stop()
         wallGenerator.stopWalls()
         ninja.fall()
         ground.stop()

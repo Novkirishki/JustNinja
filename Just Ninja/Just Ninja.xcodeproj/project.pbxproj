@@ -17,6 +17,10 @@
 		CF4A01B81C60B4BF00930EF2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01B71C60B4BF00930EF2 /* SystemConfiguration.framework */; };
 		CF4A01BA1C60B4C900930EF2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01B91C60B4C900930EF2 /* libz.tbd */; };
 		CF4A01BC1C60B4D300930EF2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4A01BB1C60B4D300930EF2 /* libsqlite3.tbd */; };
+		CF5489301C660341000BE785 /* background0.png in Resources */ = {isa = PBXBuildFile; fileRef = CF54892F1C660341000BE785 /* background0.png */; };
+		CF5489361C660354000BE785 /* minimalism_sky_clouds_sun_mountains_lake_landscape_95458_1920x1080.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF5489321C660354000BE785 /* minimalism_sky_clouds_sun_mountains_lake_landscape_95458_1920x1080.jpg */; };
+		CF54893C1C660EC3000BE785 /* bump.wav in Resources */ = {isa = PBXBuildFile; fileRef = CF54893A1C660EC3000BE785 /* bump.wav */; };
+		CF54893D1C660EC3000BE785 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF54893B1C660EC3000BE785 /* background.mp3 */; };
 		CF6758031C634A8400109B49 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6758011C634A8400109B49 /* Bolts.framework */; };
 		CF6758041C634A8400109B49 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6758021C634A8400109B49 /* Parse.framework */; };
 		CF6758061C637E5500109B49 /* ComposeHighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6758051C637E5500109B49 /* ComposeHighscoreViewController.swift */; };
@@ -54,6 +58,10 @@
 		CF4A01B71C60B4BF00930EF2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CF4A01B91C60B4C900930EF2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CF4A01BB1C60B4D300930EF2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		CF54892F1C660341000BE785 /* background0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background0.png; sourceTree = "<group>"; };
+		CF5489321C660354000BE785 /* minimalism_sky_clouds_sun_mountains_lake_landscape_95458_1920x1080.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = minimalism_sky_clouds_sun_mountains_lake_landscape_95458_1920x1080.jpg; sourceTree = "<group>"; };
+		CF54893A1C660EC3000BE785 /* bump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bump.wav; sourceTree = "<group>"; };
+		CF54893B1C660EC3000BE785 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		CF6758011C634A8400109B49 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		CF6758021C634A8400109B49 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		CF6758051C637E5500109B49 /* ComposeHighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeHighscoreViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +133,24 @@
 				CF4A01A91C60B47D00930EF2 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF54892C1C6601A1000BE785 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CF5489321C660354000BE785 /* minimalism_sky_clouds_sun_mountains_lake_landscape_95458_1920x1080.jpg */,
+				CF54892F1C660341000BE785 /* background0.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		CF5489391C660E9F000BE785 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				CF54893A1C660EC3000BE785 /* bump.wav */,
+				CF54893B1C660EC3000BE785 /* background.mp3 */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		CF748D7B1C62A5C100D37F63 /* CustomViews */ = {
@@ -221,6 +247,8 @@
 		CFDDE2241C5E3EFD00972D98 /* Just Ninja */ = {
 			isa = PBXGroup;
 			children = (
+				CF5489391C660E9F000BE785 /* Sounds */,
+				CF54892C1C6601A1000BE785 /* Images */,
 				CF748D811C62A77800D37F63 /* ViewControllers */,
 				CF748D7B1C62A5C100D37F63 /* CustomViews */,
 				CFDDE2251C5E3EFD00972D98 /* AppDelegate.swift */,
@@ -299,10 +327,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF54893C1C660EC3000BE785 /* bump.wav in Resources */,
 				CFDDE2341C5E3EFD00972D98 /* LaunchScreen.storyboard in Resources */,
 				CFDDE2311C5E3EFD00972D98 /* Assets.xcassets in Resources */,
 				CF748D801C62A5EB00D37F63 /* HighscoreTableViewCell.xib in Resources */,
+				CF54893D1C660EC3000BE785 /* background.mp3 in Resources */,
+				CF5489301C660341000BE785 /* background0.png in Resources */,
 				CFDDE22F1C5E3EFD00972D98 /* Main.storyboard in Resources */,
+				CF5489361C660354000BE785 /* minimalism_sky_clouds_sun_mountains_lake_landscape_95458_1920x1080.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

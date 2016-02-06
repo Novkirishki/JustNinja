@@ -96,7 +96,10 @@ class ComposeHighscoreViewController: UIViewController, UINavigationControllerDe
         let scoreAsNumber = Int(score)
         highscore["Score"] = NSNumber(integer: scoreAsNumber!)
         highscore["Username"] = usernameField.text
-        highscore["Country"] = country
+        
+        if country != nil {
+            highscore["Country"] = country
+        }
         
         if tempImage != nil {
             let imageData = UIImagePNGRepresentation(tempImage)

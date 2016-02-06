@@ -14,7 +14,11 @@ class Cloud: SKShapeNode {
         super.init()
         let path = CGPathCreateWithEllipseInRect(CGRect(x: 0, y: 0, width: size.width, height: size.height), nil)
         self.path = path
-        fillColor = UIColor.whiteColor()
+        let cloudColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.70)
+        
+        fillColor = cloudColor
+        glowWidth = 3
+        strokeColor = cloudColor
         
         startMoving()
     }    
